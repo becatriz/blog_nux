@@ -37,15 +37,15 @@ export default {
   modules: ["@nuxtjs/axios"],
 
   axios: {
-    baseURL: "https://nuxt-blog-34a29-default-rtdb.firebaseio.com",
-    credentials: false
+    baseURL: "https://nuxt-blog-34a29-default-rtdb.firebaseio.com"
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
   env: {
-    baseUrl: "https://nuxt-blog-34a29-default-rtdb.firebaseio.com"
+    baseUrl: "https://nuxt-blog-34a29-default-rtdb.firebaseio.com",
+    fbAPIKEY: "AIzaSyCgxxKKSihKc3yB1Kif3GeBtiG_oHZxeDQ"
   },
 
   router: {

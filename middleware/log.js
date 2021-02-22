@@ -1,3 +1,3 @@
 export default function(context) {
-  console.log("oi b");
+  console.log("[Middleware] The Log Middleware is running");
 }

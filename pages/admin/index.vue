@@ -1,25 +1,32 @@
 <template>
-    <div class="admin-page">
-        <section class="new-post">
-            <AppButton @click="$router.push('/admin/new-post')">Criar Post</AppButton>
-        </section>
-        <section class="existing-posts">
-            <h1>Post existentes</h1>
-            <PostList isAdmin :posts="loadedPosts"  />
-        </section>
-    </div>
+  <div class="admin-page">
+    <section class="new-post">
+      <AppButton @click="$router.push('/admin/new-post')">Criar Post</AppButton>
+      <AppButton style="margin-left: 10px" @click="onLogout">Logout</AppButton>
+    </section>
+    <section class="existing-posts">
+      <h1>Post existentes</h1>
+      <PostList isAdmin :posts="loadedPosts" />
+    </section>
+  </div>
 </template>
 
 <script>
-
 export default {
   layout: "admin",
-  computed:{
-    loadedPosts(){
-      return this.$store.getters.loadedPosts
-    }
-  }
-}
+  middleware: ["check-auth", "auth"],
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts;
+    },
+  },
+   methods: {
+      onLogout() {
+        this.$store.dispatch("logout");
+        this.$router.push("/admin/auth");
+      },
+    },
+};
 </script>
 
 <style scoped>
